@@ -1,0 +1,60 @@
+  
+  <div class="main-footer">
+    <div class="row invoice-info">
+      <div class="col-xs-4"></div>
+      <div class="col-xs-4"></div>
+      <div class="col-xs-4">
+      </div>
+    </div>
+  </div>
+
+
+<!-- Javascripts-->
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/plugins/bootstrap-notify.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/plugins/pace.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/plugins/moment.min.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery-ui.custom.min.js"></script>
+    <script type="text/javascript" src="js/plugins/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/plugins/sweetalert.min.js"></script>
+    <!--<script type="text/javascript" src="../backend/ajax/inc/config.js"></script>-->
+    <script type="text/javascript">
+      //locations
+      $(document).ready(function() {
+        $('#table_locations').DataTable( {
+          "order": [[ 1, "asc" ]],
+          "aLengthMenu": [[10, 25, 50, 75, 100, -1], [10, 25, 50, 75, 100, "Alle"]],
+          "iDisplayLength": 25
+        });
+      });
+      //minerals
+      $(document).ready(function() {
+        $('#table_minerals').DataTable( {
+          "order": [[ 1, "asc" ]],
+          "aLengthMenu": [[10, 25, 50, 75, 100, -1], [10, 25, 50, 75, 100, "Alle"]],
+          "iDisplayLength": 25
+        });
+      });
+      //users
+      $(document).ready(function() {
+        $('#table_users').DataTable( {
+          "order": [[ 1, "asc" ]],
+          "aLengthMenu": [[10, 25, 50, 75, 100, -1], [10, 25, 50, 75, 100, "Alle"]],
+          "iDisplayLength": 25
+        });
+      });
+      //collection
+      $(document).ready(function() {
+        $('#table_collection').DataTable( {
+          "order": [[ 0, "desc" ]],
+          "aLengthMenu": [[10, 25, 50, 75, 100, -1], [10, 25, 50, 75, 100, "Alle"]],
+          "iDisplayLength": 25
+        });
+      });
+    </script>   
+  </body>
+</html>
