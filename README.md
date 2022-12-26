@@ -8,7 +8,7 @@ Downloade dir das Verzeichnis rechts oben unter Code oder über https://github.c
 
 ## How to run
 * ruby-main.zip in das gewünschte Web Server Verzeichnis ablegen. ruby-main.zip entpacken und in ruby umbenennen.
-* Im Verzeichnis einen Ordner *docs erstellen.
+* Im Verzeichnis einen Ordner docs erstellen.
 * Mit chmod -R 775 ruby gewünschte Schreibrechte setzen.
 * Datenbank *ruby_db.sql aus dem Verzeichnis bspw. über phpmyadmin oder Maria DB importieren
 * Datenbankzugang unter ruby/inc/db.php in Zeile 10 einrichten
@@ -19,11 +19,12 @@ Downloade dir das Verzeichnis rechts oben unter Code oder über https://github.c
   Zeile 26: $server = 1 ändern zu $server = 0;
   
 ## How to use
-* Im Browser < htttp://deinhostname >/ruby eingeben. (< deinhostname > = localhost oder www)
+* Im Browser </htttp://deinhostname/>/ruby eingeben. (</deinhostname/> = localhost oder www)
 * Mit *demo *demo anmelden.
 * Zugangsdaten können unter Konto verwalten geändert werden.
  
   Bevor Fundstücke erfasst werden können, ist es ratsam zuerst Fundort und Mineralart anzulegen.
+  Diese brauchen nach dem Erstellen für das Mineral dann nur noch ausgewählt werden.
 
 ### Fundstelle anlegen:
 * Fundorte verwalten > Fundort anlegen > Fundort, Region eintragen > Speichern
