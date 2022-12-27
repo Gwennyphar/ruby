@@ -10,7 +10,7 @@ Downloade dir das Verzeichnis rechts oben unter Code oder über https://github.c
 * ruby-main.zip in das gewünschte Web Server Verzeichnis ablegen. ruby-main.zip entpacken und in ruby umbenennen.
 * Im Verzeichnis einen Ordner docs erstellen.
 * Mit chmod -R 775 ruby gewünschte Schreibrechte setzen.
-* Datenbank *ruby_db.sql aus dem Verzeichnis bspw. über phpmyadmin oder Maria DB importieren
+* Datenbank ruby_db.sql aus dem Verzeichnis bspw. über phpmyadmin oder Maria DB importieren
 * Datenbankzugang unter ruby/inc/db.php in Zeile 10 einrichten
   if(db_switch() == 0) {
     new mysqli('host', 'benutzer', 'passwort', 'datenbank'); 
