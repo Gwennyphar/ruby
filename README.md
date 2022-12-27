@@ -4,7 +4,7 @@ mineral collecting database
 
 ## Download
 
-Downloade dir das Verzeichnis rechts oben unter Code oder über https://github.com/Gwennyphar/ruby.git
+Rechts oben unter Code oder über https://github.com/Gwennyphar/ruby.git runterladen.
 
 ## How to run
 * ruby-main.zip in das gewünschte Web Server Verzeichnis ablegen. ruby-main.zip entpacken und in ruby umbenennen.
