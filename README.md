@@ -4,14 +4,16 @@ mineral collecting database
 
 ## Download
 
-Downloade dir das Verzeichnis rechts oben unter Code oder über https://github.com/Gwennyphar/ruby.git
+Rechts oben unter Code oder über https://github.com/Gwennyphar/ruby.git runterladen.
 
 ## How to run
 * ruby-main.zip in das gewünschte Web Server Verzeichnis ablegen. ruby-main.zip entpacken und in ruby umbenennen.
+* Oder: mit cd /var/www/html/ wechseln und git clone https://github.com/Gwennyphar/ruby.git ausführen.
 * Im Verzeichnis einen Ordner docs erstellen.
 * Mit chmod -R 775 ruby gewünschte Schreibrechte setzen.
-* Datenbank ruby_db.sql aus dem Verzeichnis bspw. über phpmyadmin oder Maria DB importieren
+* Datenbank ruby_db.sql aus dem Verzeichnis bspw. über phpmyadmin oder Maria DB importieren.
 * Datenbankzugang unter ruby/inc/db.php in Zeile 10 einrichten
+
   if(db_switch() == 0) {
     new mysqli('host', 'benutzer', 'passwort', 'datenbank'); 
   }
