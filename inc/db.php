@@ -7,7 +7,7 @@
  */
 
 if(db_switch() == 0) {
-  $mysqli = new mysqli('localhost', 'root', '', ''); 
+  $mysqli = new mysqli('localhost', 'root', 'root', 'lithothek'); 
 }
 else if(db_switch() == 1) {
   $mysqli = new mysqli('127.0.0.1', 'root', 'root', 'ruby_db');
@@ -23,6 +23,6 @@ if ($mysqli->connect_errno) {
 }
 
 function db_switch() {
-  $server = 1;
+  $server = 0;
   return $server;
 }
