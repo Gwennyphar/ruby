@@ -25,3 +25,5 @@
 /vendors/*
 
 /nbproject/*
+/docs/*
+/inc/db.php
