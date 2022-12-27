@@ -20,7 +20,7 @@ Downloade dir das Verzeichnis rechts oben unter Code oder über https://github.c
   
 ## How to use
 * Im Browser </htttp://deinhostname/>/ruby eingeben. (</deinhostname/> = localhost oder www)
-* Mit *demo *demo anmelden.
+* Mit demo demo anmelden.
 * Zugangsdaten können unter Konto verwalten geändert werden.
  
   Bevor Fundstücke erfasst werden können, ist es ratsam zuerst Fundort und Mineralart anzulegen.
