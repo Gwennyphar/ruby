@@ -20,8 +20,8 @@ $sql = "SELECT fullname, username, pwtext, aktiv
   if ($result = $mysqli->query($sql) ) {
     while($obj  = $result->fetch_object()){
       $fullname = $obj->fullname;
-      $username = utf8_encode($obj->username);
-      $pwtxt    = utf8_encode($obj->pwtext);
+      $username = $obj->username;
+      $pwtxt    = $obj->pwtext;
       $active   = $obj->aktiv;
     }
     $result->close();

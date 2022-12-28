@@ -19,6 +19,7 @@ else if(db_switch() == 2) {
 if ($mysqli->connect_errno) {
   die("Verbindung fehlgeschlagen: " . $mysqli->connect_error);
 } else {
+  $mysqli->set_charset("utf8mb4");
 //  echo 'Verindung aufgebaut';
 }
 

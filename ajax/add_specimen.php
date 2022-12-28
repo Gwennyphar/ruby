@@ -36,7 +36,7 @@ if( strcmp($btn, 'btnSave') == 0 || strcmp($btn, 'addCopyBtn') == 0) {
      $attmnt = "INSERT INTO attachments (link)"
       . "VALUES ('".$imgVal."')";
      if(isset($attmnt)) {
-      $stmnt_attmnt = $mysqli->prepare( utf8_decode($attmnt) );
+      $stmnt_attmnt = $mysqli->prepare($attmnt);
       $stmnt_attmnt->execute();
       $fkFile = mysqli_insert_id($mysqli);  
     }
@@ -48,7 +48,7 @@ if( strcmp($btn, 'btnSave') == 0 || strcmp($btn, 'addCopyBtn') == 0) {
        . " VALUES ($type, '".$title."', $mineral, '".$convDate."', $location, '".$number."', '".$description."', $fkFile)";
 
      if(isset($spec)) {
-       $stmnt_spec = $mysqli->prepare( utf8_decode($spec) );
+       $stmnt_spec = $mysqli->prepare($spec);
        $stmnt_spec->execute();  
      }
 

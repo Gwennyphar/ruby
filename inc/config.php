@@ -34,7 +34,7 @@
         }else {
           $selected = '';
         }
-        $opt .= '<option '.$selected.' value="'.$obj->id.'">'.utf8_encode($obj->name).'</option>';
+        $opt .= '<option '.$selected.' value="'.$obj->id.'">'.$obj->name.'</option>';
       }
       $close = '</select>';
     }
@@ -62,7 +62,7 @@
         }else {
           $selected = '';
         }
-        $opt .= '<option '.$selected.' value="'.$obj->id.'">'.utf8_encode($obj->full_location).'</option>';
+        $opt .= '<option '.$selected.' value="'.$obj->id.'">'.$obj->full_location.'</option>';
       }
       $close = '</select>';
     }
@@ -87,9 +87,9 @@
         $arr[] = array(
           'cnt'            => ++$i,
           'id'             => $obj->id,
-          'location'       => utf8_encode($obj->location),
-          'full_location'  => utf8_encode($obj->full_location),
-          'country'        => utf8_encode($obj->country),
+          'location'       => $obj->location,
+          'full_location'  => $obj->full_location,
+          'country'        => $obj->country,
         );
       }
     }
@@ -115,8 +115,8 @@
         $arr[] = array(
           'cnt'       => ++$i,
           'id'        => $obj->id,
-          'name'      => utf8_encode($obj->name),
-          'formula'   => utf8_decode($obj->formula),
+          'name'      => $obj->name,
+          'formula'   => $obj->formula,
         );
       }
     }
@@ -143,14 +143,14 @@
           'cnt'           => ++$i,
           'id'            => $obj->id,
           'type'          => $obj->type,
-          'title'         => shortText( utf8_encode($obj->title), 165),
+          'title'         => shortText($obj->title, 165),
           'date'          => date('m.Y', strtotime($obj->date)),
           'number'        => $obj->number,
-          'description'   => utf8_encode($obj->description),
-          'mineral'       => utf8_encode($obj->mineral),
-          'formula'       => utf8_decode($obj->formula),
-          'location'      => utf8_encode($obj->full_location),
-          'country'       => utf8_encode($obj->country),
+          'description'   => $obj->description,
+          'mineral'       => $obj->mineral,
+          'formula'       => $obj->formula,
+          'location'      => $obj->full_location,
+          'country'       => $obj->country,
           'link'          => $obj->link,
         );
       }
@@ -175,8 +175,8 @@
         $arr[] = array(
           'cnt'     => ++$i,
           'id'      => $obj->uid,
-          'full'    => utf8_encode($obj->fullname),
-          'name'    => utf8_encode($obj->username),
+          'full'    => $obj->fullname,
+          'name'    => $obj->username,
           'aktiv'   => getStatus($obj->aktiv, 0)
         );
       }

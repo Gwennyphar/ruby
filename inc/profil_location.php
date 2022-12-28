@@ -31,8 +31,8 @@
       while($obj  = $result->fetch_object()){
         $arr = array(
          'id'        => $obj->id,
-         'location'  => utf8_encode($obj->location),
-         'country'   => utf8_encode($obj->country)
+         'location'  => $obj->location,
+         'country'   => $obj->country
         );
       }
     }

@@ -21,7 +21,7 @@ if( strcmp($btn, 'save') == 0 ) {
    * insert user logins
    */
    $sql = "INSERT INTO minerals (name, formula)"
-     . "VALUES ('".utf8_decode($name)."', '".utf8_encode($formula)."')";
+     . "VALUES ('".$name."', '".$formula."')";
 
    if(isset($sql)) {
      $stmnt_local = $mysqli->prepare($sql);

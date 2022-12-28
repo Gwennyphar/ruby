@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 28. Dez 2022 um 11:57
+-- Erstellungszeit: 28. Dez 2022 um 20:28
 -- Server-Version: 5.7.40-0ubuntu0.18.04.1
 -- PHP-Version: 8.0.26
 
@@ -33,17 +33,6 @@ CREATE TABLE `attachments` (
   `file` blob,
   `link` mediumtext
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `gender`
---
-
-CREATE TABLE `gender` (
-  `id_title` int(11) NOT NULL,
-  `title` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -250,7 +239,7 @@ CREATE TABLE `v_users` (
 --
 DROP TABLE IF EXISTS `v_collection`;
 
-CREATE ALGORITHM=TEMPTABLE DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_collection`  AS SELECT `s`.`id_specim` AS `id`, `s`.`type` AS `type`, `s`.`title` AS `title`, `s`.`date` AS `date`, `s`.`number` AS `number`, `s`.`description` AS `description`, `m`.`id_mineral` AS `id_mineral`, `m`.`name` AS `mineral`, `m`.`formula` AS `formula`, `l`.`id_location` AS `id_location`, `l`.`location` AS `location`, concat(`l`.`location`,', ',`l`.`country`) AS `full_location`, `l`.`country` AS `country`, `a`.`id_file` AS `id_file`, `a`.`link` AS `link` FROM (((`specimen` `s` join `minerals` `m` on((`s`.`id_mineral` = `m`.`id_mineral`))) join `locations` `l` on((`s`.`id_location` = `l`.`id_location`))) left join `attachments` `a` on((`s`.`id_file` = `a`.`id_file`))) WHERE 1111  ;
+CREATE ALGORITHM=TEMPTABLE DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_collection`  AS SELECT `s`.`id_specim` AS `id`, `s`.`type` AS `type`, `s`.`title` AS `title`, `s`.`date` AS `date`, `s`.`number` AS `number`, `s`.`description` AS `description`, `m`.`id_mineral` AS `id_mineral`, `m`.`name` AS `mineral`, `m`.`formula` AS `formula`, `l`.`id_location` AS `id_location`, `l`.`location` AS `location`, concat(`l`.`location`,', ',`l`.`country`) AS `full_location`, `l`.`country` AS `country`, `a`.`id_file` AS `id_file`, `a`.`link` AS `link` FROM (((`specimen` `s` join `minerals` `m` on((`s`.`id_mineral` = `m`.`id_mineral`))) join `locations` `l` on((`s`.`id_location` = `l`.`id_location`))) left join `attachments` `a` on((`s`.`id_file` = `a`.`id_file`))) WHERE 1 ORDER BY `s`.`title` ASC  ;
 
 -- --------------------------------------------------------
 
@@ -286,7 +275,7 @@ CREATE ALGORITHM=MERGE DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_n
 --
 DROP TABLE IF EXISTS `v_users`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_users`  AS SELECT `l`.`uid` AS `uid`, `u`.`name` AS `name`, convert(`u`.`name` using utf8) AS `fullname`, lower(convert(`u`.`name` using utf8)) AS `username`, `l`.`md5` AS `password`, `l`.`pwd` AS `pwtext`, `l`.`aktiv` AS `aktiv` FROM ((`logins` `l` join `users` `u` on((`l`.`id_ma` = `u`.`id_ma`))) WITH LOCAL CHECK OPTION  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_users`  AS SELECT `l`.`uid` AS `uid`, `u`.`name` AS `name`, convert(`u`.`name` using utf8) AS `fullname`, lower(convert(`u`.`name` using utf8)) AS `username`, `l`.`md5` AS `password`, `l`.`pwd` AS `pwtext`, `l`.`aktiv` AS `aktiv` FROM (`logins` `l` join `users` `u` on((`l`.`id_ma` = `u`.`id_ma`))) WITH LOCAL CHECK OPTION  ;
 
 --
 -- Indizes der exportierten Tabellen
