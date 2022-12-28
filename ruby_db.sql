@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 26. Dez 2022 um 19:55
+-- Erstellungszeit: 28. Dez 2022 um 11:57
 -- Server-Version: 5.7.40-0ubuntu0.18.04.1
 -- PHP-Version: 8.0.26
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `ruby_db`
+-- Datenbank: `lithothek`
 --
 
 -- --------------------------------------------------------
@@ -70,6 +70,13 @@ CREATE TABLE `logins` (
   `aktiv` tinyint(4) DEFAULT NULL,
   `id_ma` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `logins`
+--
+
+INSERT INTO `logins` (`uid`, `md5`, `pwd`, `aktiv`, `id_ma`) VALUES
+(55, 'fe01ce2a7fbac8fafaed7c982a04e229', 'demo', 1, 46);
 
 -- --------------------------------------------------------
 
@@ -145,6 +152,13 @@ CREATE TABLE `users` (
   `name` varchar(160) NOT NULL,
   `id_details` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `users`
+--
+
+INSERT INTO `users` (`id_ma`, `id_title`, `name`, `id_details`) VALUES
+(46, 2, 'Demo', 46);
 
 -- --------------------------------------------------------
 
@@ -245,7 +259,7 @@ CREATE ALGORITHM=TEMPTABLE DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `v_locations`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_locations`  AS SELECT `locations`.`id_location` AS `id`, `locations`.`location` AS `location`, `locations`.`country` AS `country`, concat(`locations`.`location`,', ',`locations`.`country`) AS `full_location` FROM `locations``locations`  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_locations`  AS SELECT `locations`.`id_location` AS `id`, `locations`.`location` AS `location`, `locations`.`country` AS `country`, concat(`locations`.`location`,', ',`locations`.`country`) AS `full_location` FROM `locations` ORDER BY `locations`.`location` ASC  ;
 
 -- --------------------------------------------------------
 
@@ -254,7 +268,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `v_minerals`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_minerals`  AS SELECT `minerals`.`id_mineral` AS `id`, `minerals`.`name` AS `name`, `minerals`.`formula` AS `formula` FROM `minerals``minerals`  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_minerals`  AS SELECT `minerals`.`id_mineral` AS `id`, `minerals`.`name` AS `name`, `minerals`.`formula` AS `formula` FROM `minerals` ORDER BY `minerals`.`name` ASC  ;
 
 -- --------------------------------------------------------
 
@@ -346,7 +360,7 @@ ALTER TABLE `locations`
 -- AUTO_INCREMENT für Tabelle `logins`
 --
 ALTER TABLE `logins`
-  MODIFY `uid` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `uid` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT für Tabelle `minerals`
@@ -376,7 +390,7 @@ ALTER TABLE `specimen`
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_ma` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_ma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
