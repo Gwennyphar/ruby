@@ -23,7 +23,7 @@
                   <label>Fundort</label>
                 </div>
                 <div class="col-md-3">
-                  <input type="text" class="form-control clr" name="location" maxlength="45" placeholder="Fundort eingeben" value="">
+                  <input type="text" class="form-control clr" name="location" maxlength="255" placeholder="Fundort eingeben" value="">
                 </div>
               </div>
               <div class="row mb-20">
@@ -31,7 +31,7 @@
                   <label>Land</label>
                 </div>
                 <div class="col-md-3">
-                 <input type="text" class="form-control clr" name="country" maxlength="45" placeholder="Land eingeben" value="">
+                 <input type="text" class="form-control clr" name="country" maxlength="255" placeholder="Land eingeben" value="">
                 </div> 
               </div>
               <div class="clearfix"></div> 

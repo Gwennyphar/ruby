@@ -47,7 +47,7 @@
                       <label>Titel</label>
                     </div>
                     <div class="col-md-3">
-                      <input type="text" class="form-control clr" name="title" maxlength="160" placeholder="Bezeichnung eingeben" value="">
+                      <input type="text" class="form-control clr" name="title" maxlength="255" placeholder="Bezeichnung eingeben" value="">
                     </div> 
                   </div>
                   <div class="row mb-20">
@@ -78,7 +78,7 @@
                       <label>Sammlungsnummer</label>
                     </div>
                     <div class="col-md-3">
-                      <input type="text" class="form-control clr" name="number" maxlength="160" placeholder="Sammlungsnummer eingeben" value="">
+                      <input type="text" class="form-control clr" name="number" maxlength="255" placeholder="Sammlungsnummer eingeben" value="">
                     </div> 
                   </div>
                   <div class="row mb-20">
