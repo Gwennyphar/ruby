@@ -286,7 +286,7 @@ CREATE ALGORITHM=MERGE DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_n
 --
 DROP TABLE IF EXISTS `v_users`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_users`  AS SELECT `l`.`uid` AS `uid`, `u`.`name` AS `name`, convert(`u`.`name` using utf8) AS `fullname`, lower(convert(`u`.`name` using utf8)) AS `username`, `l`.`md5` AS `password`, `l`.`pwd` AS `pwtext`, `l`.`aktiv` AS `aktiv` FROM ((`logins` `l` join `users` `u` on((`l`.`id_ma` = `u`.`id_ma`))) join `gender` `g` on((`u`.`id_title` = `g`.`id_title`))) WITH LOCAL CHECK OPTION  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_users`  AS SELECT `l`.`uid` AS `uid`, `u`.`name` AS `name`, convert(`u`.`name` using utf8) AS `fullname`, lower(convert(`u`.`name` using utf8)) AS `username`, `l`.`md5` AS `password`, `l`.`pwd` AS `pwtext`, `l`.`aktiv` AS `aktiv` FROM ((`logins` `l` join `users` `u` on((`l`.`id_ma` = `u`.`id_ma`))) WITH LOCAL CHECK OPTION  ;
 
 --
 -- Indizes der exportierten Tabellen
