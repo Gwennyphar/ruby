@@ -15,5 +15,5 @@
     <title>Ruby</title>
   </head>
     <?php if(isset($user_check)) {
-      include_once '../inc/profil.php';
+      include_once 'inc/profil.php';
     }
