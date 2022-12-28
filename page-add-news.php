@@ -22,7 +22,7 @@
                       <label>Titel/Überschrift</label>
                     </div>
                     <div class="col-md-3">
-                      <input type="text" class="form-control clr" name="title" maxlength="45" placeholder="Titel eingeben" value="">
+                      <input type="text" class="form-control clr" name="title" maxlength="255" placeholder="Titel eingeben" value="">
                     </div>
                   </div>
                   <div class="row mb-20">

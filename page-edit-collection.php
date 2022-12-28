@@ -50,7 +50,7 @@
                       <label>Titel</label>
                     </div>
                     <div class="col-md-3">
-                      <input type="text" class="form-control clr" name="title" maxlength="160" placeholder="Bezeichnung eingeben" value="<?php echo $specimen_d['title']; ?>">
+                      <input type="text" class="form-control clr" name="title" maxlength="255" placeholder="Bezeichnung eingeben" value="<?php echo $specimen_d['title']; ?>">
                     </div> 
                     <div class="col-md-2">
                       <label></label>
@@ -100,7 +100,7 @@
                       <label>Sammlungsnummer</label>
                     </div>
                     <div class="col-md-3">
-                      <input type="text" class="form-control clr" name="number" maxlength="160" placeholder="Sammlungsnummer eingeben" value="<?php echo $specimen_d['number']; ?>">
+                      <input type="text" class="form-control clr" name="number" maxlength="255" placeholder="Sammlungsnummer eingeben" value="<?php echo $specimen_d['number']; ?>">
                     </div> 
                   </div>
                   <div class="row mb-20">
