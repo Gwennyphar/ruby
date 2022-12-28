@@ -23,7 +23,7 @@
                   <label>Mineralienname</label>
                 </div>
                 <div class="col-md-3">
-                  <input type="text" class="form-control clr" name="name" maxlength="45" placeholder="Mineralienname eingeben" value="">
+                  <input type="text" class="form-control clr" name="name" maxlength="255" placeholder="Mineralienname eingeben" value="">
                 </div>
               </div>
               <div class="row mb-20">
@@ -31,7 +31,7 @@
                   <label>Chem. Formel</label>
                 </div>
                 <div class="col-md-3">
-                 <input type="text" class="form-control clr" name="formula" maxlength="45" placeholder="Chemische Formel eingeben" value="">
+                 <input type="text" class="form-control clr" name="formula" maxlength="255" placeholder="Chemische Formel eingeben" value="">
                 </div> 
               </div>
               <div class="clearfix"></div> 

@@ -46,7 +46,7 @@
                     <label>Fundort</label>
                   </div>
                   <div class="col-md-3">
-                    <input type="text" class="form-control" name="location" maxlength="45" placeholder="Fundstelle eingeben" value="<?php echo $location_d['location']; ?>">
+                    <input type="text" class="form-control" name="location" maxlength="255" placeholder="Fundstelle eingeben" value="<?php echo $location_d['location']; ?>">
                   </div>
                 </div>
                 <div class="clearfix"></div> 
@@ -55,7 +55,7 @@
                     <label>Land, Bezirk. Region</label>
                   </div>
                   <div class="col-md-3">
-                    <input type="text" class="form-control" name="country" maxlength="160" placeholder="Land eingeben" value="<?php echo $location_d['country']; ?>">
+                    <input type="text" class="form-control" name="country" maxlength="255" placeholder="Land eingeben" value="<?php echo $location_d['country']; ?>">
                   </div>
                 </div> 
                 <div class="clearfix"></div> 

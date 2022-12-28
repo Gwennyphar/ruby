@@ -46,7 +46,7 @@
                     <label>Mineraliename</label>
                   </div>
                   <div class="col-md-3">
-                    <input type="text" class="form-control" name="mineral" maxlength="45" placeholder="Mineralienname eingeben" value="<?php echo $mineral_d['name']; ?>">
+                    <input type="text" class="form-control" name="mineral" maxlength="255" placeholder="Mineralienname eingeben" value="<?php echo $mineral_d['name']; ?>">
                   </div>
                 </div>
                 <div class="clearfix"></div> 
@@ -55,7 +55,7 @@
                     <label>Chemische Formel</label>
                   </div>
                   <div class="col-md-3">
-                    <input type="text" class="form-control" name="formula" maxlength="160" placeholder="Chemische Formel eingeben" value="<?php echo $mineral_d['formula']; ?>">
+                    <input type="text" class="form-control" name="formula" maxlength="255" placeholder="Chemische Formel eingeben" value="<?php echo $mineral_d['formula']; ?>">
                   </div>
                 </div> 
                 <div class="clearfix"></div> 
