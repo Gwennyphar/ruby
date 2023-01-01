@@ -144,7 +144,7 @@
                 <div class="row mb-20">
                   <div class="col-md-2">
                     <input type="hidden" name="id" value="<?php echo $specimen_d['id']; ?>">
-                    <button class="btn btn-success" type="button" id="updTrip" name="btnUpd" value="update"><i class="fa fa-fw fa-lg fa fa-floppy-o"></i>Speichern</button>
+                    <button class="btn btn-success" type="button" id="btnUpd" name="btnUpd" value="update"><i class="fa fa-fw fa-lg fa fa-floppy-o"></i>Speichern</button>
                   </div> 
                   <div class="col-md-2">
                     <button class="btn btn-danger btnDel" type="button" id="btnDel" name="btnDel" value="delete"><i class="fa fa-fw fa-lg fa fa-trash-o"></i>Löschen</button>

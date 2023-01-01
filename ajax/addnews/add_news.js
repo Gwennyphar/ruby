@@ -19,7 +19,7 @@ $(document).ready(function() {
         'upload'        : uploadFile(),
         'imgVal'        : $('input[type=file]').val().replace(/C:\\fakepath\\/i, '')
       };
-        console.log(post_data.imgVal);
+
       /**
        * sendet Ajax Posts an Server
        * JSON Daten holen und Benachrichtigung im Formular anzeigen

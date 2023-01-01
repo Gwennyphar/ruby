@@ -38,7 +38,7 @@ if( strcmp($btn, 'btnSave') == 0 || strcmp($btn, 'addCopyBtn') == 0) {
      if(isset($attmnt)) {
       $stmnt_attmnt = $mysqli->prepare($attmnt);
       $stmnt_attmnt->execute();
-      $fkFile = mysqli_insert_id($mysqli);  
+      $fkFile = mysqli_insert_id($mysqli);
     }
            
     /**
@@ -49,11 +49,12 @@ if( strcmp($btn, 'btnSave') == 0 || strcmp($btn, 'addCopyBtn') == 0) {
 
      if(isset($spec)) {
        $stmnt_spec = $mysqli->prepare($spec);
-       $stmnt_spec->execute();  
+       $stmnt_spec->execute();
+       $copyId = mysqli_insert_id($mysqli);  
      }
 
      if ($stmnt_spec == true ) {
-       $output = json_encode(array('type'=>'success', 'title' => ' Speichern war erfolgreich: ', 'text' => ' Belegstück angelegt.', 'alert' => 'success', 'icon'=>'fa fa-check'));  
+       $output = json_encode(array('type'=>'success', 'copyId'=> $copyId, 'title' => ' Speichern war erfolgreich: ', 'text' => ' Belegstück angelegt.', 'alert' => 'success', 'icon'=>'fa fa-check'));  
        die($output);  
      }
      $mysqli->close(); 

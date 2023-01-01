@@ -12,7 +12,6 @@
         'location'  : $('input[name=location]').val(),
         'country'   : $('input[name=country]').val()
       };
-      console.log(post_data);
       
       /**
        * sendet Ajax Posts an Server
