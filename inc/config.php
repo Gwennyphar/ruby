@@ -9,6 +9,7 @@
   $collection = getCollection($mysqli);
   $selMineral = getMineral($mysqli, 'sel_mineral', null, 'sel_mineral');
   $minerals   = getMinerals($mysqli);
+  $panelwork  = getPanelwork($mysqli);
   $selLocal   = getLocation($mysqli, 'sel_local', null, 'sel_local');
   $locations  = getLocations($mysqli);
   $users      = getUsers($mysqli);
@@ -117,6 +118,35 @@
           'id'        => $obj->id,
           'name'      => $obj->name,
           'formula'   => $obj->formula,
+        );
+      }
+    }
+    $result->close();
+    return $arr;
+  }
+  
+  
+  /**
+   * 
+   * @param type $mysqli
+   * @return type
+   */
+ function getPanelwork($mysqli) {
+    $sql = "SELECT id, class, department, name, formula
+      FROM v_systematics
+      Where 1";
+    
+    if($result = $mysqli->query($sql) ) {
+      $i = 0;
+      $arr[] = '';
+      while($obj = $result->fetch_object()){
+        $arr[] = array(
+          'cnt'        => ++$i,
+          'id'         => $obj->id,
+          'class'      => $obj->class,
+          'department' => $obj->department,
+          'name'       => $obj->name,
+          'formula'    => $obj->formula,
         );
       }
     }

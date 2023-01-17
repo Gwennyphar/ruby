@@ -11,6 +11,7 @@
       <li class="<?php if($page == 'news'){echo 'active';}?>"><a href="page-news.php"><i class="fa fa-newspaper-o"></i>Wiki</a></li>
       <li class="<?php if($page == 'locations'){echo 'active';}?>"><a href="page-locations.php"><i class="fa fa-map"></i>Fundorte verwalten</a></li>
       <li class="<?php if($page == 'minerals'){echo 'active';}?>"><a href="page-minerals.php"><i class="fa fa-compass"></i>Mineralien verwalten</a></li>
+      <li class="<?php if($page == 'systematics'){echo 'active';}?>"><a href="page-systematics.php"><i class="fa fa-table"></i>Mineralogisches Tafelwerk</a></li>
       <li class="<?php if($page == 'users'){echo 'active';}?>"><a href="page-edit-profile.php"><i class="fa fa-wrench"></i>Konto verwalten</a></li>
       <li class=""><a href="inc/logout.php"><i class="fa fa-sign-out fa-lg"></i> Abmelden</a></li>
     </ul>
