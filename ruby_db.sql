@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 28. Dez 2022 um 20:28
+-- Erstellungszeit: 18. Jan 2023 um 00:38
 -- Server-Version: 5.7.40-0ubuntu0.18.04.1
 -- PHP-Version: 8.0.26
 
@@ -76,7 +76,8 @@ INSERT INTO `logins` (`uid`, `md5`, `pwd`, `aktiv`, `id_ma`) VALUES
 CREATE TABLE `minerals` (
   `id_mineral` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `formula` varchar(255) DEFAULT NULL
+  `formula` varchar(255) DEFAULT NULL,
+  `id_class` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -127,6 +128,18 @@ CREATE TABLE `specimen` (
   `stat2` tinyint(4) DEFAULT NULL,
   `description` mediumtext,
   `id_file` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `systematics`
+--
+
+CREATE TABLE `systematics` (
+  `id_class` int(11) NOT NULL,
+  `class` varchar(255) DEFAULT NULL,
+  `department` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -219,6 +232,20 @@ CREATE TABLE `v_news` (
 -- --------------------------------------------------------
 
 --
+-- Stellvertreter-Struktur des Views `v_systematics`
+-- (Siehe unten für die tatsächliche Ansicht)
+--
+CREATE TABLE `v_systematics` (
+`id` int(11)
+,`class` varchar(255)
+,`department` varchar(255)
+,`name` varchar(255)
+,`formula` varchar(255)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Stellvertreter-Struktur des Views `v_users`
 -- (Siehe unten für die tatsächliche Ansicht)
 --
@@ -267,6 +294,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `v_news`;
 
 CREATE ALGORITHM=MERGE DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_news`  AS SELECT `n`.`id_news` AS `id_news`, `n`.`title` AS `title`, `n`.`shorttext` AS `shorttext`, `n`.`description` AS `description`, `n`.`start` AS `start`, `n`.`end` AS `end`, `n`.`status` AS `status`, `n`.`id_file` AS `id_file`, `a`.`link` AS `file_link` FROM (`news` `n` left join `news_attachments` `a` on((`n`.`id_file` = `a`.`id_file`)))  ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur des Views `v_systematics`
+--
+DROP TABLE IF EXISTS `v_systematics`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_systematics`  AS SELECT `systematics`.`id_class` AS `id`, `systematics`.`class` AS `class`, `systematics`.`department` AS `department`, `m`.`name` AS `name`, `m`.`formula` AS `formula` FROM (`systematics` left join `minerals` `m` on((`systematics`.`id_class` = `m`.`id_class`))) ORDER BY `m`.`name` ASC  ;
 
 -- --------------------------------------------------------
 
@@ -324,6 +360,12 @@ ALTER TABLE `specimen`
   ADD PRIMARY KEY (`id_specim`);
 
 --
+-- Indizes für die Tabelle `systematics`
+--
+ALTER TABLE `systematics`
+  ADD PRIMARY KEY (`id_class`);
+
+--
 -- Indizes für die Tabelle `users`
 --
 ALTER TABLE `users`
@@ -374,6 +416,12 @@ ALTER TABLE `news_attachments`
 --
 ALTER TABLE `specimen`
   MODIFY `id_specim` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `systematics`
+--
+ALTER TABLE `systematics`
+  MODIFY `id_class` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT für Tabelle `users`
