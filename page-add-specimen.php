@@ -52,7 +52,7 @@
                   </div>
                   <div class="row mb-20">
                     <div class="col-md-2">
-                      <label>Fund/Kaufdatum</label>
+                      <label>Eingangsdatum</label>
                     </div>
                     <div class="col-md-3">
                       <div class="input-group date col-md-12">
