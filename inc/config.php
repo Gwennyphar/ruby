@@ -9,6 +9,7 @@
   $collection = getCollection($mysqli);
   $selMineral = getMineral($mysqli, 'sel_mineral', null, 'sel_mineral');
   $minerals   = getMinerals($mysqli);
+  $panelwork  = getPanelwork($mysqli);
   $selLocal   = getLocation($mysqli, 'sel_local', null, 'sel_local');
   $locations  = getLocations($mysqli);
   $users      = getUsers($mysqli);
@@ -34,7 +35,7 @@
         }else {
           $selected = '';
         }
-        $opt .= '<option '.$selected.' value="'.$obj->id.'">'.utf8_encode($obj->name).'</option>';
+        $opt .= '<option '.$selected.' value="'.$obj->id.'">'.$obj->name.'</option>';
       }
       $close = '</select>';
     }
@@ -62,7 +63,7 @@
         }else {
           $selected = '';
         }
-        $opt .= '<option '.$selected.' value="'.$obj->id.'">'.utf8_encode($obj->full_location).'</option>';
+        $opt .= '<option '.$selected.' value="'.$obj->id.'">'.$obj->full_location.'</option>';
       }
       $close = '</select>';
     }
@@ -87,9 +88,9 @@
         $arr[] = array(
           'cnt'            => ++$i,
           'id'             => $obj->id,
-          'location'       => utf8_encode($obj->location),
-          'full_location'  => utf8_encode($obj->full_location),
-          'country'        => utf8_encode($obj->country),
+          'location'       => $obj->location,
+          'full_location'  => $obj->full_location,
+          'country'        => $obj->country,
         );
       }
     }
@@ -115,8 +116,37 @@
         $arr[] = array(
           'cnt'       => ++$i,
           'id'        => $obj->id,
-          'name'      => utf8_encode($obj->name),
-          'formula'   => utf8_decode($obj->formula),
+          'name'      => $obj->name,
+          'formula'   => $obj->formula,
+        );
+      }
+    }
+    $result->close();
+    return $arr;
+  }
+  
+  
+  /**
+   * 
+   * @param type $mysqli
+   * @return type
+   */
+ function getPanelwork($mysqli) {
+    $sql = "SELECT id, class, department, name, formula
+      FROM v_systematics
+      Where 1";
+    
+    if($result = $mysqli->query($sql) ) {
+      $i = 0;
+      $arr[] = '';
+      while($obj = $result->fetch_object()){
+        $arr[] = array(
+          'cnt'        => ++$i,
+          'id'         => $obj->id,
+          'class'      => $obj->class,
+          'department' => $obj->department,
+          'name'       => $obj->name,
+          'formula'    => $obj->formula,
         );
       }
     }
@@ -143,14 +173,14 @@
           'cnt'           => ++$i,
           'id'            => $obj->id,
           'type'          => $obj->type,
-          'title'         => shortText( utf8_encode($obj->title), 165),
+          'title'         => shortText($obj->title, 165),
           'date'          => date('m.Y', strtotime($obj->date)),
           'number'        => $obj->number,
-          'description'   => utf8_encode($obj->description),
-          'mineral'       => utf8_encode($obj->mineral),
-          'formula'       => utf8_decode($obj->formula),
-          'location'      => utf8_encode($obj->full_location),
-          'country'       => utf8_encode($obj->country),
+          'description'   => $obj->description,
+          'mineral'       => $obj->mineral,
+          'formula'       => $obj->formula,
+          'location'      => $obj->full_location,
+          'country'       => $obj->country,
           'link'          => $obj->link,
         );
       }
@@ -175,8 +205,8 @@
         $arr[] = array(
           'cnt'     => ++$i,
           'id'      => $obj->uid,
-          'full'    => utf8_encode($obj->fullname),
-          'name'    => utf8_encode($obj->username),
+          'full'    => $obj->fullname,
+          'name'    => $obj->username,
           'aktiv'   => getStatus($obj->aktiv, 0)
         );
       }

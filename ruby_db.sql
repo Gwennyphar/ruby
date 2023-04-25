@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 28. Dez 2022 um 11:57
+-- Erstellungszeit: 18. Jan 2023 um 00:38
 -- Server-Version: 5.7.40-0ubuntu0.18.04.1
 -- PHP-Version: 8.0.26
 
@@ -33,17 +33,6 @@ CREATE TABLE `attachments` (
   `file` blob,
   `link` mediumtext
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `gender`
---
-
-CREATE TABLE `gender` (
-  `id_title` int(11) NOT NULL,
-  `title` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -87,7 +76,8 @@ INSERT INTO `logins` (`uid`, `md5`, `pwd`, `aktiv`, `id_ma`) VALUES
 CREATE TABLE `minerals` (
   `id_mineral` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `formula` varchar(255) DEFAULT NULL
+  `formula` varchar(255) DEFAULT NULL,
+  `id_class` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -138,6 +128,18 @@ CREATE TABLE `specimen` (
   `stat2` tinyint(4) DEFAULT NULL,
   `description` mediumtext,
   `id_file` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `systematics`
+--
+
+CREATE TABLE `systematics` (
+  `id_class` int(11) NOT NULL,
+  `class` varchar(255) DEFAULT NULL,
+  `department` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -230,6 +232,20 @@ CREATE TABLE `v_news` (
 -- --------------------------------------------------------
 
 --
+-- Stellvertreter-Struktur des Views `v_systematics`
+-- (Siehe unten für die tatsächliche Ansicht)
+--
+CREATE TABLE `v_systematics` (
+`id` int(11)
+,`class` varchar(255)
+,`department` varchar(255)
+,`name` varchar(255)
+,`formula` varchar(255)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Stellvertreter-Struktur des Views `v_users`
 -- (Siehe unten für die tatsächliche Ansicht)
 --
@@ -250,7 +266,7 @@ CREATE TABLE `v_users` (
 --
 DROP TABLE IF EXISTS `v_collection`;
 
-CREATE ALGORITHM=TEMPTABLE DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_collection`  AS SELECT `s`.`id_specim` AS `id`, `s`.`type` AS `type`, `s`.`title` AS `title`, `s`.`date` AS `date`, `s`.`number` AS `number`, `s`.`description` AS `description`, `m`.`id_mineral` AS `id_mineral`, `m`.`name` AS `mineral`, `m`.`formula` AS `formula`, `l`.`id_location` AS `id_location`, `l`.`location` AS `location`, concat(`l`.`location`,', ',`l`.`country`) AS `full_location`, `l`.`country` AS `country`, `a`.`id_file` AS `id_file`, `a`.`link` AS `link` FROM (((`specimen` `s` join `minerals` `m` on((`s`.`id_mineral` = `m`.`id_mineral`))) join `locations` `l` on((`s`.`id_location` = `l`.`id_location`))) left join `attachments` `a` on((`s`.`id_file` = `a`.`id_file`))) WHERE 1111  ;
+CREATE ALGORITHM=TEMPTABLE DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_collection`  AS SELECT `s`.`id_specim` AS `id`, `s`.`type` AS `type`, `s`.`title` AS `title`, `s`.`date` AS `date`, `s`.`number` AS `number`, `s`.`description` AS `description`, `m`.`id_mineral` AS `id_mineral`, `m`.`name` AS `mineral`, `m`.`formula` AS `formula`, `l`.`id_location` AS `id_location`, `l`.`location` AS `location`, concat(`l`.`location`,', ',`l`.`country`) AS `full_location`, `l`.`country` AS `country`, `a`.`id_file` AS `id_file`, `a`.`link` AS `link` FROM (((`specimen` `s` join `minerals` `m` on((`s`.`id_mineral` = `m`.`id_mineral`))) join `locations` `l` on((`s`.`id_location` = `l`.`id_location`))) left join `attachments` `a` on((`s`.`id_file` = `a`.`id_file`))) WHERE 1 ORDER BY `s`.`title` ASC  ;
 
 -- --------------------------------------------------------
 
@@ -282,11 +298,20 @@ CREATE ALGORITHM=MERGE DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_n
 -- --------------------------------------------------------
 
 --
+-- Struktur des Views `v_systematics`
+--
+DROP TABLE IF EXISTS `v_systematics`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_systematics`  AS SELECT `systematics`.`id_class` AS `id`, `systematics`.`class` AS `class`, `systematics`.`department` AS `department`, `m`.`name` AS `name`, `m`.`formula` AS `formula` FROM (`systematics` left join `minerals` `m` on((`systematics`.`id_class` = `m`.`id_class`))) ORDER BY `m`.`name` ASC  ;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur des Views `v_users`
 --
 DROP TABLE IF EXISTS `v_users`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_users`  AS SELECT `l`.`uid` AS `uid`, `u`.`name` AS `name`, convert(`u`.`name` using utf8) AS `fullname`, lower(convert(`u`.`name` using utf8)) AS `username`, `l`.`md5` AS `password`, `l`.`pwd` AS `pwtext`, `l`.`aktiv` AS `aktiv` FROM ((`logins` `l` join `users` `u` on((`l`.`id_ma` = `u`.`id_ma`))) WITH LOCAL CHECK OPTION  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_users`  AS SELECT `l`.`uid` AS `uid`, `u`.`name` AS `name`, convert(`u`.`name` using utf8) AS `fullname`, lower(convert(`u`.`name` using utf8)) AS `username`, `l`.`md5` AS `password`, `l`.`pwd` AS `pwtext`, `l`.`aktiv` AS `aktiv` FROM (`logins` `l` join `users` `u` on((`l`.`id_ma` = `u`.`id_ma`))) WITH LOCAL CHECK OPTION  ;
 
 --
 -- Indizes der exportierten Tabellen
@@ -333,6 +358,12 @@ ALTER TABLE `news_attachments`
 --
 ALTER TABLE `specimen`
   ADD PRIMARY KEY (`id_specim`);
+
+--
+-- Indizes für die Tabelle `systematics`
+--
+ALTER TABLE `systematics`
+  ADD PRIMARY KEY (`id_class`);
 
 --
 -- Indizes für die Tabelle `users`
@@ -385,6 +416,12 @@ ALTER TABLE `news_attachments`
 --
 ALTER TABLE `specimen`
   MODIFY `id_specim` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `systematics`
+--
+ALTER TABLE `systematics`
+  MODIFY `id_class` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT für Tabelle `users`

@@ -21,7 +21,7 @@
                 <div class="card">
                   <h4 class="line-head"><label></label></h4>
                   <div class="row mb-20">
-                    <div class="form-group">
+<!--                    <div class="form-group">
                       <div class="col-md-2">
                         <label>Exemplar</label>
                       </div>
@@ -35,7 +35,7 @@
                           <input type="radio" class="" name="type" id="fossil" value="2"><span class="label-text">Fossil</span>
                         </label>
                       </div>
-                    </div>
+                    </div>-->
                   </div>
                   <div class="row mb-20">
                     <div class="col-md-2">
@@ -58,9 +58,9 @@
                       <?php if( isset($specimen_d['link']) ) { ?>
                       <div class="row mb-6">
                         <div class="col-md-3">
-                          <a href="/ruby/docs/<?php echo $specimen_d['link']; ?>">
-                              <img src="/ruby/docs/<?php echo $specimen_d['link']; ?>" class="preview_image_detailpage" width="50%" height="50%">
-                          </a>
+<!--                          <a href="/ruby/docs/<?php echo $specimen_d['link']; ?>">-->
+                              <img src="/ruby/docs/<?php echo $specimen_d['link']; ?>" class="preview_image_detailpage TinyZoom" width="50%" height="50%" onclick="img_box(this)">
+<!--                          </a>-->
                           <?php
                             echo '
                             <div class="col-md-10">
@@ -74,7 +74,7 @@
                   </div>
                   <div class="row mb-20">
                     <div class="col-md-2">
-                      <label>Fund/Kaufdatum</label>
+                      <label>Eingangsdatum</label>
                     </div>
                     <div class="col-md-3">
                       <div class="input-group date col-md-12">
@@ -104,7 +104,7 @@
                     </div> 
                   </div>
                   <div class="row mb-20">
-                    <div class="col-md-2">
+<!--                    <div class="col-md-2">
                       <label>Status</label>
                     </div>
                     <div class="col-md-2 toggle">
@@ -118,7 +118,7 @@
                         <input type="checkbox" class="clr" name="stat2" id="stat2" value="1" onclick="sale();"><span class="button-indecator"></span>
                       </label>
                       <label id="stat-2">zum Verkauf</label>
-                    </div>
+                    </div>-->
                   </div>
                   <div class="row mb-20">
                     <div class="col-md-2">
@@ -144,7 +144,7 @@
                 <div class="row mb-20">
                   <div class="col-md-2">
                     <input type="hidden" name="id" value="<?php echo $specimen_d['id']; ?>">
-                    <button class="btn btn-success" type="button" id="updTrip" name="btnUpd" value="update"><i class="fa fa-fw fa-lg fa fa-floppy-o"></i>Speichern</button>
+                    <button class="btn btn-success" type="button" id="btnUpd" name="btnUpd" value="update"><i class="fa fa-fw fa-lg fa fa-floppy-o"></i>Speichern</button>
                   </div> 
                   <div class="col-md-2">
                     <button class="btn btn-danger btnDel" type="button" id="btnDel" name="btnDel" value="delete"><i class="fa fa-fw fa-lg fa fa-trash-o"></i>Löschen</button>

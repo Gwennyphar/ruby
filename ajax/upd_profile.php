@@ -33,7 +33,7 @@ if( strcmp($btn, 'updProfile') == 0 ) {
         }
         //change Layouttext
         if(isset($update)) {
-            $stmnt = $mysqli->prepare( utf8_decode($update) );
+            $stmnt = $mysqli->prepare($update);
             $stmnt->execute();
             if($stmnt == true) {
               

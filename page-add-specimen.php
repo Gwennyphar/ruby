@@ -18,7 +18,7 @@
                 <div class="card">
                   <h4 class="line-head"><label></label></h4>
                   <div class="row mb-20">
-                    <div class="form-group">
+<!--                    <div class="form-group">
                       <div class="col-md-2">
                         <label>Exemplar</label>
                       </div>
@@ -32,7 +32,7 @@
                           <input type="radio" class="" name="type" id="fossil" value="2"><span class="label-text">Fossil</span>
                         </label>
                       </div>
-                    </div>
+                    </div>-->
                   </div>
                   <div class="row mb-20">
                     <div class="col-md-2">
@@ -52,7 +52,7 @@
                   </div>
                   <div class="row mb-20">
                     <div class="col-md-2">
-                      <label>Fund/Kaufdatum</label>
+                      <label>Eingangsdatum</label>
                     </div>
                     <div class="col-md-3">
                       <div class="input-group date col-md-12">
@@ -82,7 +82,7 @@
                     </div> 
                   </div>
                   <div class="row mb-20">
-                    <div class="col-md-2">
+<!--                    <div class="col-md-2">
                       <label>Status</label>
                     </div>
                     <div class="col-md-2 toggle">
@@ -96,7 +96,7 @@
                         <input type="checkbox" class="clr" name="sta2" id="stat2" value="1" onclick="sale();"><span class="button-indecator"></span>
                       </label>
                       <label id="stat-2">zum Verkauf</label>
-                    </div>
+                    </div>-->
                   </div>
                   <div class="row mb-20">
                     <div class="col-md-2">

@@ -30,9 +30,9 @@
       while($obj  = $result->fetch_object()){
         $arr[] = array(
           'id'          => $obj->id_news,
-          'title'       => utf8_encode($obj->title),
-          'shorttext'   => utf8_encode($obj->shorttext),
-          'description' => utf8_encode($obj->description),
+          'title'       => $obj->title,
+          'shorttext'   => $obj->shorttext,
+          'description' => $obj->description,
           'start_date'  => convertDatetime($obj->start),
           'end_date'    => convertDatetime($obj->end),
           'id_file'     => $obj->id_file,
@@ -61,9 +61,9 @@
       while($obj  = $result->fetch_object()){
         $arr = array(
           'id'          => $obj->id_news,
-          'title'       => utf8_encode($obj->title),
-          'shorttext'   => utf8_encode($obj->shorttext),
-          'description' => utf8_encode($obj->description),
+          'title'       => $obj->title,
+          'shorttext'   => $obj->shorttext,
+          'description' => $obj->description,
           'start_date'  => convertDatetime($obj->start),
           'end_date'    => convertDatetime($obj->end),
           'id_file'     => $obj->id_file,

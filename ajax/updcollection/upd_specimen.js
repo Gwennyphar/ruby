@@ -4,7 +4,7 @@ $(document).ready(function() {
   /**
    * click update btnUser 
    */
-  $("#updTrip").click(function() {
+  $("#btnUpd").click(function() {
       post_data = {
 
          /**
@@ -24,7 +24,7 @@ $(document).ready(function() {
         'upload'        : uploadFile(),
         'imgVal'        : $('input[type=file]').val().replace(/C:\\fakepath\\/i, '')
       };
-      console.log(post_data);
+
       /**
        * sendet Ajax Posts an Server
        * JSON Daten holen und Benachrichtigung im Formular anzeigen

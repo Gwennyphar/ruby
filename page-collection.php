@@ -49,7 +49,7 @@ ini_set('display_startup_errors', 1);
                               . '<td>'.$val["location"].'</td>'
                               . '<td>'; 
                             if( isset($val["link"]) ) { 
-                              echo'<a href="/ruby/docs/'.$val["link"].'"><img src="/ruby/docs/'.$val["link"].'" class="preview_image" width="80" height="60"></a>';
+                              echo'<img src="/ruby/docs/'.$val["link"].'" class="preview_image" width="80" height="60" onclick="img_box(this)">';
                             }
                             echo '</td>
                               <td class="no--border">

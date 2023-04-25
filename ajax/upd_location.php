@@ -16,7 +16,7 @@ if( strcmp($btn, 'update') == 0 ) {
    
     //change Layouttext
     if(isset($update)) {
-      $stmnt = $mysqli->prepare( utf8_decode($update) );
+      $stmnt = $mysqli->prepare($update );
       $stmnt->execute();
       if($stmnt == true) {
         $output = json_encode(array('type'=>'success', 'title' => ' Änderung erfolgreich: ', 'location' => $location, 'country' => $country, 'text' => $location.' wurde aktualisiert.', 'alert' => 'success', 'icon'=>'fa fa-check'));  

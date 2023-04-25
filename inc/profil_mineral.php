@@ -31,8 +31,8 @@
       while($obj  = $result->fetch_object()){
         $arr = array(
          'id'        => $obj->id,
-         'name'      => utf8_encode($obj->name),
-         'formula'   => utf8_decode($obj->formula)
+         'name'      => $obj->name,
+         'formula'   => $obj->formula
         );
       }
     }

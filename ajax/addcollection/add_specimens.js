@@ -22,8 +22,6 @@ $(document).ready(function() {
       'imgVal'        : $('input[type=file]').val().replace(/C:\\fakepath\\/i, '')
      };
 
-//      console.log(post_data);
-
       /**
        * sendet Ajax Posts an Server
        * JSON Daten holen und Benachrichtigung im Formular anzeigen
@@ -59,6 +57,7 @@ $(document).ready(function() {
          *  adding specimen
          */
         'btn'           : 'btnSave',
+        'action'        : 'copy',
         'type'          : $("input[name='type']:checked").val(),
         'title'         : $('input[name=title]').val(),
         'mineral'       : $('select#sel_mineral :selected').val(),
@@ -70,8 +69,6 @@ $(document).ready(function() {
         'imgVal'        : $('input[type=file]').val().replace(/C:\\fakepath\\/i, '')
        };
 
-      console.log(post_data);
-
       /**
        * sendet Ajax Posts an Server
        * JSON Daten holen und Benachrichtigung im Formular anzeigen
@@ -80,18 +77,17 @@ $(document).ready(function() {
        */
       $.post('ajax/add_specimen.php', post_data, function(response){
         if(response.type === 'success'){
-          //reset inputs
-          $('select').prop('selectedIndex', 0);
-          $('.clr').val('');
-          $('#btnUpload').html('<i class="fa fa-fw fa-lg fa-check-circle"></i>Hochladen');
-          $("#fileupload").val('');
+          //reset no inputs
+          setTimeout(function(){ window.location.replace("page-edit-collection.php?id="+response.copyId); }, 2000);
+          
         }
         $.notify({
           title: response.title,
           message: response.text,
           icon: response.icon 
         },{
-          type: response.alert
+          type: response.alert,
+          copyId: response.copyId
         });
       }, 'json');
     });

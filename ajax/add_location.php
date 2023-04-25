@@ -24,7 +24,7 @@ if( strcmp($btn, 'save') == 0 ) {
      . "VALUES ('".$location."', '".$country."')";
 
    if(isset($sql)) {
-     $stmnt_local = $mysqli->prepare( utf8_decode($sql) );
+     $stmnt_local = $mysqli->prepare($sql);
      $stmnt_local->execute();
    }
 

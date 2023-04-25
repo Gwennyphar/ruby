@@ -33,7 +33,7 @@ if( strcmp($btn, 'addNews') == 0) {
        $attmnt = "INSERT INTO news_attachments (link)"
         . "VALUES ('".$imgVal."')";
        if(isset($attmnt)) {
-        $stmnt_attmnt = $mysqli->prepare( utf8_decode($attmnt) );
+        $stmnt_attmnt = $mysqli->prepare($attmnt);
         $stmnt_attmnt->execute();
         $fkFile = mysqli_insert_id($mysqli);  
       }
@@ -45,7 +45,7 @@ if( strcmp($btn, 'addNews') == 0) {
          . "VALUES ('".$title."', '".$shorttext."', '".$description."', '".$start_date_us."', '".$end_date_us."', $fkFile)";
 
        if(isset($news)) {
-         $stmnt_news = $mysqli->prepare( utf8_decode($news) );
+         $stmnt_news = $mysqli->prepare($news);
          $stmnt_news->execute();
          //auto-generated id
          $fkNews = mysqli_insert_id($mysqli);

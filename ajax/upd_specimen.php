@@ -29,7 +29,7 @@ if( strcmp($btn, 'update') == 0 ) {
       . "SET link = '$imgVal'"
       . "WHERE id_file = ".$id_file;
     if(isset($attmnt)) {
-      $stmnt_attmnt = $mysqli->prepare( utf8_decode($attmnt) );
+      $stmnt_attmnt = $mysqli->prepare($attmnt);
       $stmnt_attmnt->execute(); 
     }
   }
@@ -39,7 +39,7 @@ if( strcmp($btn, 'update') == 0 ) {
     $insert = "INSERT INTO attachments (link)"
         . "VALUES ('".$imgVal."')";
     if(isset($insert)) {
-      $stmnt_attmnt = $mysqli->prepare( utf8_decode($insert) );
+      $stmnt_attmnt = $mysqli->prepare($insert);
       $stmnt_attmnt->execute();
       $fkFile = mysqli_insert_id($mysqli);   
     }
@@ -64,7 +64,7 @@ if( strcmp($btn, 'update') == 0 ) {
       . "WHERE id_specim = ".$id;
     
   if(isset($update)) {
-    $stmnt = $mysqli->prepare( utf8_decode($update) );
+    $stmnt = $mysqli->prepare($update);
     $stmnt->execute();
     $mysqli->close();
     if($stmnt == true) {

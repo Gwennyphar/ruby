@@ -11,7 +11,7 @@ if( strcmp($btn, 'update') == 0 ) {
     $formula   = filter_var(filter_input(INPUT_POST, 'formula'), FILTER_SANITIZE_STRING);
 
     $update = "UPDATE minerals "
-        . "SET name = '".utf8_decode($mineral)."', formula = '".utf8_encode($formula)."' "
+        . "SET name = '".$mineral."', formula = '".$formula."' "
         . "WHERE id_mineral = ".$id;
    
     //change Layouttext

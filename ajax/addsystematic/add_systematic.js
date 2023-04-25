@@ -1,16 +1,16 @@
   $(document).ready(function() {
     /**
-     * click insert btnUser 
+     * click insert btnSave 
      */
     $("#btnSave").click(function() {
       post_data = {
 
         /**
-         * adding location
+         * adding systematc
          */
-        'btn'       : 'save',
-        'location'  : $('input[name=location]').val(),
-        'country'   : $('input[name=country]').val()
+        'btn'        : 'save',
+        'class'      : $('input[name=class]').val(),
+        'department' : $('input[name=department]').val()
       };
       
       /**
@@ -19,7 +19,7 @@
        * nach erfolgreichen versenden Benachrichtigung anzeigen
        * und Eingabefelder reseten  
        */
-      $.post('ajax/add_location.php', post_data, function(response){
+      $.post('ajax/add_systematic.php', post_data, function(response){
         if(response.type === 'success'){
           //reset inputs
           $('.clr').val('');
