@@ -10,6 +10,7 @@
     <link href="css/daterangepicker.css" rel="stylesheet" type="text/css"/>
     <link href="css/main.css" rel="stylesheet" type="text/css"/>
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="css/select2.css" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" type="image/x-icon" href="images/logo.ico">
     <link rel="apple-touch-icon" href="images/logo.ico">
     <title>Ruby</title>

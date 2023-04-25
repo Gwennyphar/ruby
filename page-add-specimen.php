@@ -160,7 +160,42 @@
       pickerPosition: "top-right",
       initialDate: new Date(),
       format: "dd.mm.yyyy"
+     });  
+    
+    
+     /**
+      * mineral
+      * @type type
+      */
+     $(document).ready(function(){ 
+       // Initialize select2
+       $("#sel_mineral").select2();
+
+       // Read selected option
+       $('#but_read').click(function(){
+          var sel_mineral = $('#sel_mineral option:selected').text();
+          var id_mineral = $('#sel_mineral').val();
+          $('#result').html("id : " + id_mineral + ", name : " + sel_mineral);
+       });
      });
+     
+     
+     /**
+      * location
+      * @type type
+      */
+     $(document).ready(function(){ 
+       // Initialize select2
+       $("#sel_local").select2();
+
+       // Read selected option
+       $('#but_read').click(function(){
+          var sel_local = $('#sel_local option:selected').text();
+          var id_location = $('#sel_local').val();
+          $('#result').html("id : " + id_location + ", name : " + sel_local);
+       });
+     });
+ 
      
     /**
      * 
@@ -177,7 +212,7 @@
       }
       document.getElementById('stat-1').innerHTML = text;
     }
-    collection();
+//    collection();
     
     
     /**
@@ -195,7 +230,7 @@
       }
       document.getElementById('stat-2').innerHTML = text;
     }
-    sale();
+//    sale();
     
     /**
      * 
