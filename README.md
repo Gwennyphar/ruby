@@ -45,5 +45,7 @@ Rechts oben unter Code oder über https://github.com/Gwennyphar/ruby.git runterl
 
 ![Bildschirmfoto_2022-12-27_00-34-31](https://user-images.githubusercontent.com/34284968/209588896-a310794d-be30-4b0a-a653-b673168c883d.png)
 
+### Sammlungstabelle mit Vorschau
+![Bildschirmfoto_2023-04-25_22-01-47](https://user-images.githubusercontent.com/34284968/234434087-29398225-3b1f-4cc8-a2be-81425114eaa9.png)
 
 
