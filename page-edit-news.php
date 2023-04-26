@@ -73,7 +73,7 @@
                                 if(!empty($news_d['file_link']) ){
                                   echo '
                                     <tr id="idrow'.$news_d['id_file'].'">
-                                      <td><a href="/ruby/docs/'.$news_d["file_link"].'"><img src="/ruby/docs/'.$news_d["file_link"].'" class="preview_image" width="200" height="180"></a></td>
+                                      <td><a href="/ruby/docs/'.$news_d["file_link"].'" target="_blank"><img src="/ruby/docs/'.$news_d["file_link"].'" class="preview_image" width="200" height="180"></a></td>
                                       <td><a class="remove-file" id="'.$news_d['id_file'].'" name="attachment" id="attachment" value="'.$news_d['id_file'].'"><i class="fa fa-fw fa-small fa fa-times"></i></a></td>
                                       <td><a href="/ruby/docs/'.$news_d['file_link'].'" target="blank"><i class="fa fa-paperclip"></i></a></td>
                     

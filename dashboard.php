@@ -57,7 +57,7 @@
 //                                  if( isset($val["link"]) ) { 
                                     echo '
                                       <tr id="idrow'.$val['id_file'].'">
-                                        <td><a href="/ruby/docs/'.$val["file_link"].'"><img src="/ruby/docs/'.$val["file_link"].'" class="preview_image" width="200" height="180"></a></td>
+                                        <td><a href="/ruby/docs/'.$val["file_link"].'" target="_blank"><img src="/ruby/docs/'.$val["file_link"].'" class="preview_image" width="200" height="180"></a></td>
                                       </tr>';
 //                                  }?>
                                 </tbody>

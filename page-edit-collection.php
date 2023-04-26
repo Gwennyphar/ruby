@@ -59,7 +59,7 @@
                       <div class="row mb-6">
                         <div class="col-md-3">
 <!--                          <a href="/ruby/docs/<?php echo $specimen_d['link']; ?>">-->
-                              <img src="/ruby/docs/<?php echo $specimen_d['link']; ?>" class="preview_image_detailpage TinyZoom" width="50%" height="50%" onclick="img_box(this)">
+                              <img src="/ruby/docs/<?php echo $specimen_d['link']; ?>" class="preview_image_detailpage" width="50%" height="50%" onclick="img_box(this)">
 <!--                          </a>-->
                           <?php
                             echo '
